@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	if pot_disparar and Input.is_action_just_pressed("Dispara"):
 		dispara()
 		await get_tree().create_timer(2.0).timeout
+		$SoMotor
 
 	
 	if bombes > 0 and Input.is_action_just_pressed("Bomba"):
