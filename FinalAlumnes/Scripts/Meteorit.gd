@@ -40,5 +40,6 @@ func potser_powerup() -> void:
 	nou_powerup.global_position = global_position
 	
 func _on_body_entered(body: Node2D) -> void:
+	preload("res://Escenes/explosió.tscn") #canvair d'escena al gameover
 	body.hit(escala * 20)
 	mor()

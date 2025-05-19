@@ -53,6 +53,8 @@ func _physics_process(delta: float) -> void:
 	
 	if pot_disparar and Input.is_action_just_pressed("Dispara"):
 		dispara()
+		await get_tree().create_timer(2.0).timeout
+
 	
 	if bombes > 0 and Input.is_action_just_pressed("Bomba"):
 		esclata_bomba()
@@ -61,8 +63,7 @@ func _physics_process(delta: float) -> void:
 	global_rotation_degrees += vel_rotacio * delta
 	centre.global_rotation_degrees = 0
 
-	move_and_slide()
-
+	move_and_slide() 
 
 func esclata_bomba():
 	so_bomba.play(0.45)
@@ -94,7 +95,6 @@ func crea_bala(posicio: Vector2) -> void:
 func _on_meteorit_mort() -> void:
 	meteorits_morts += 1
 	Global.Marcador.actualitza(meteorits_morts)
-
 
 func _on_area_bomba_area_entered(area: Area2D) -> void:
 	area.mor()
